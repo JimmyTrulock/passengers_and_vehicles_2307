@@ -23,4 +23,16 @@ class Park
         end
         passenger_list.join(", ")
     end
+
+    def revenue
+        count = 0
+        @vehicles_entered.each do |vehicle|
+            vehicle.passengers.each do |passenger|
+                if passenger.age >= 18
+                    count = count + 1
+                end
+            end
+        end
+        count * @admission_price
+    end
 end

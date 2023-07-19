@@ -45,11 +45,14 @@ describe "#revenue" do
         vehicle = Vehicle.new("2001", "Honda", "Civic")
         charlie = Passenger.new({"name" => "Charlie", "age" => 18})
         taylor = Passenger.new({"name" => "Taylor", "age" => 12})
-        jude = Passenger.new({"name" => "Jude", "age" => 20}) 
-        vehicle.add_passenger(jude)
         vehicle.add_passenger(charlie)
         vehicle.add_passenger(taylor)
         park.entering(vehicle)
+
+        expect(park.revenue).to eq(18)
+
+        jude = Passenger.new({"name" => "Jude", "age" => 20}) 
+        vehicle.add_passenger(jude)
 
         expect(park.revenue).to eq(36)
     end
