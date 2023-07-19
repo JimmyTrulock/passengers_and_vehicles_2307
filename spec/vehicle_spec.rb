@@ -47,4 +47,21 @@ describe "#add_passenger" do
     end
 end
 
+describe "#num_adults" do
+    it "counts how many adult passengers there are in the vehicle" do
+        vehicle = Vehicle.new("2001", "Honda", "Civic")
+        charlie = Passenger.new({"name" => "Charlie", "age" => 18})
+        taylor = Passenger.new({"name" => "Taylor", "age" => 12})
+        vehicle.add_passenger(charlie)
+        vehicle.add_passenger(taylor)
+
+        expect(vehicle.num_adults).to eq(1)
+
+        jude = Passenger.new({"name" => "Jude", "age" => 20}) 
+        vehicle.add_passenger(jude)
+
+        expect(vehicle.num_adults).to eq(2)
+    end
+end
+
 
